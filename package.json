@@ -35,7 +35,9 @@
     "build:server": "cross-env NODE_ENV=production webpack --config ./build/webpack.server.config.js --progress --hide-modules",
     "test": "karma start ./test/unit/karma.conf.js --single-run",
     "test:watch": "karma start ./test/unit/karma.conf.js",
-    "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save"
+    "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "optionalDependencies": {
     "fsevents": "*"
@@ -57,7 +59,8 @@
     "vue-server-renderer": "2.5.13",
     "vue-style-loader": "^3.1.2",
     "vuex": "3.0.1",
-    "vuex-router-sync": "5.0.0"
+    "vuex-router-sync": "5.0.0",
+    "snyk": "^1.161.1"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
@@ -106,5 +109,6 @@
     "webpack": "3.10.0",
     "webpack-dev-middleware": "2.0.4",
     "webpack-hot-middleware": "2.21.0"
-  }
+  },
+  "snyk": true
 }
